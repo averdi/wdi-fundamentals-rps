@@ -77,23 +77,27 @@ function playToFive() {
     var computerWins = 0;
     
 while (playerWins <5 && computerWins <5) {
-    var playerMove= getPlayerMove();
-    var computerMove=getComputerMove();
+    var playerMove= getPlayerMove(getInput());
+    var computerMove=getComputerMove(randomPlay());
     var winner=getWinner(playerMove, computerMove);
 
 if (winner === “player”) {
-    playerWins+ =1;
-    console.log(‘Player chose’ + playerMove + ‘while Computer chose ‘ + computerMove + ‘, the score is currently’ + playerWins + ‘to' + computerWins + ‘.');
-} else if (winner === “computer”) {
-    computerWins+ = 1;
-    console.log(‘Player chose’ + playerMove + ‘while Computer chose ‘ + computerMove + ‘, the score is currently’ + playerWins + ‘to' + computerWins + ‘.');
+    playerWins+=1;
+    console.log("Player chose" + playerMove + "while Computer chose " + computerMove + ", the score is currently" + playerWins + "to" + computerWins + ".");
+} else if (winner === "computer") {
+    computerWins+= 1;
+    console.log("Player chose" + playerMove + "while Computer chose " + computerMove + ", the score is currently" + playerWins + "to" + computerWins + ".");
 } else {
-    console.log(‘It’s a tie!’ + ‘The score is’ + playerWins + ‘to’ + computerWins + ‘.’)
+    console.log("It’s a tie!" + "The score is" + playerWins + "to" + computerWins + ".")
 }
 }
-    if (playerWins ===5 | | computerWins === 5) {
-    console.log(‘Game over!’ + playerWins + ’to’ + computerWins + ‘is the final score.’);
+    if (playerWins ===5) {
+    console.log("Game over! Player wins." + playerWins + "to" + computerWins + "is the final score.");
+} else if (computerWins ===5) {
+        console.log("Game over! Computer wins." + playerWins + "to" + computerWins + "is the final score.");
+    }
 }
     return [playerWins, computerWins];
 }
+playtoFive();
 
